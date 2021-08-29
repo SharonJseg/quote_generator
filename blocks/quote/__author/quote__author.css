@@ -1,0 +1,14 @@
+.quote__author {
+  font-family: 'Open Sans', sans-serif;
+  color: #faf3dd;
+  font-size: 3rem;
+  line-height: 3.75rem;
+  text-align: right;
+  margin: 0;
+  margin-top: 5px;
+}
+
+.quote__author::before {
+  content: '—';
+  margin-right: 5px;
+}

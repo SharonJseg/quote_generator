@@ -5,8 +5,6 @@ const twitterButton = quoteContainer.querySelector('.quote__button_type_tweet');
 const newQuoteButton = quoteContainer.querySelector('.quote__button_type_new-quote');
 const loader = document.querySelector('.loader');
 
-let apiQuotes = [];
-
 const loading = () => {
     loader.hidden = false;
     quoteContainer.hidden = true;
@@ -17,33 +15,34 @@ const loadingComplete = () => {
     loader.hidden = true;
 }
 
-const newQuote = () => {
+const newQuote = (quote) => {
     loading();
-    const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)]
-
-    if(quote.text.length > 120) {
+    if(quote.quoteText.length > 120) {
        quoteText.classList.add('quote__text_long')
     } else {
         quoteText.classList.remove('quote__text_long')
     }
 
-    if(!quote.author) {
+    if(!quote.quoteAuthor) {
         quoteAuthor.textContent = 'Unknown'
     } else {
-        quoteAuthor.textContent = quote.author;
+        quoteAuthor.textContent = quote.quoteAuthor;
     }
-    quoteText.textContent = quote.text;
+    quoteText.textContent = quote.quoteText;
     loadingComplete();
 }
 
-const getQuotes = async () => {
+const getQuote = async () => {
     loading()
-    const apiUrl = 'https://type.fit/api/quotes';
+    const proxyUrl = 'https://peaceful-eyrie-13335.herokuapp.com/'
+    const apiUrl = 'http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json';
     try {
-        const response = await fetch(apiUrl);
-        apiQuotes = await response.json()
-        newQuote();
+        const response = await fetch(proxyUrl + apiUrl);
+        const apiQuote = await response.json()
+        console.clear()
+        newQuote(apiQuote);
     } catch (err) {
+        getQuote();
         console.warn(`Something went wrong - ${err}`);
     }
 }
@@ -54,11 +53,11 @@ const tweetQuote = () => {
 }
 
 twitterButton.addEventListener('click', tweetQuote)
-newQuoteButton.addEventListener('click', newQuote);
+newQuoteButton.addEventListener('click', getQuote);
 document.addEventListener('keydown', evt => {
     if (evt.key === 'Enter'){
-        newQuote();
+        getQuote();
     }
 })
 
-getQuotes();
+getQuote();

@@ -1,0 +1,28 @@
+.quote__button {
+  cursor: pointer;
+  font-size: 2.3rem;
+  line-height: 3rem;
+  border: 1px solid #d9abffad;
+  border-radius: 5px;
+  color: #faf3dd;
+  color: #faf3dd;
+  background-color: #9d4edd;
+  vertical-align: middle;
+  outline: none;
+  margin: 0;
+  padding: 1rem 3rem;
+  box-shadow: 0 0.3rem rgb(255, 255, 255, 0.9);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.quote__button:hover {
+  background-color: #8e46c9;
+}
+
+.quote__button:active {
+  transform: translate(0, 0.3rem);
+  box-shadow: 0 0.1rem rgb(255, 255, 255, 0.9);
+}

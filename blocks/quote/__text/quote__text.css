@@ -1,0 +1,16 @@
+.quote__text {
+  color: #faf3dd;
+  font-size: 5rem;
+  line-height: 6.25rem;
+  margin: 0;
+}
+
+.quote__text::before {
+  content: '“';
+  font-size: 5rem;
+}
+
+.quote__text::after {
+  content: '”';
+  font-size: 5rem;
+}

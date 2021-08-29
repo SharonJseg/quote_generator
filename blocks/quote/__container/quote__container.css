@@ -1,0 +1,11 @@
+.quote__container {
+  background-color: rgba(240, 248, 255, 0.2);
+  max-width: 900px;
+  margin: auto 20px;
+  padding: 30px 50px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
