@@ -1,11 +1,103 @@
 @import url('https://fonts.googleapis.com/css2?family=Kaisei+Opti:wght@700&family=Open+Sans:ital,wght@1,300&display=swap');
 
 /* font-family: 'Kaisei Opti', serif;
-font-family: 'Open Sans', sans-serif; */
+font-family: 'Open Sans', sans-serif; 
+#faf3dd
+*/
 
 .page {
+  font-family: 'Kaisei Opti', serif;
   background-color: #240046;
   background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239d4edd' fill-opacity='0.22'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   min-height: 100vh;
   margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.quote__container {
+  background-color: rgba(240, 248, 255, 0.2);
+  max-width: 900px;
+  margin: auto 20px;
+  padding: 30px 50px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.quote__text {
+  color: #faf3dd;
+  font-size: 5rem;
+  line-height: 6.25rem;
+  margin: 0;
+}
+
+.quote__text::before {
+  content: '“';
+  font-size: 5rem;
+}
+
+.quote__text::after {
+  content: '”';
+  font-size: 5rem;
+}
+
+.quote__author {
+  font-family: 'Open Sans', sans-serif;
+  color: #faf3dd;
+  font-size: 3rem;
+  line-height: 3.75rem;
+  text-align: right;
+  margin: 0;
+  margin-top: 5px;
+}
+
+.quote__author::before {
+  content: '—';
+  margin-right: 5px;
+}
+
+.quote__button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.quote__button {
+  cursor: pointer;
+  font-size: 2.3rem;
+  line-height: 3rem;
+  border: 1px solid #d9abffad;
+  border-radius: 5px;
+  color: #faf3dd;
+  color: #faf3dd;
+  background-color: #9d4edd;
+  vertical-align: middle;
+  outline: none;
+  margin: 0;
+  padding: 1rem 3rem;
+  box-shadow: 0 0.3rem rgb(255, 255, 255, 0.9);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.quote__button:hover {
+  background-color: #8e46c9;
+}
+
+.quote__button:active {
+  transform: translate(0, 0.3rem);
+  box-shadow: 0 0.1rem rgb(255, 255, 255, 0.9);
+}
+
+.quote__button_type_tweet:hover {
+  color: #38a1f3;
 }
