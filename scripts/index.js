@@ -15,7 +15,7 @@ const loadingComplete = () => {
     loader.hidden = true;
 }
 
-const newQuote = (quote) => {
+const displayQuote = (quote) => {
     loading();
     if(quote.quoteText.length > 120) {
        quoteText.classList.add('quote__text_long')
@@ -40,7 +40,7 @@ const getQuote = async () => {
         const response = await fetch(proxyUrl + apiUrl);
         const apiQuote = await response.json()
         console.clear()
-        newQuote(apiQuote);
+        displayQuote(apiQuote);
     } catch (err) {
         getQuote();
         console.warn(`Something went wrong - ${err}`);
