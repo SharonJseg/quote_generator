@@ -39,7 +39,6 @@ const getQuote = async () => {
     try {
         const response = await fetch(proxyUrl + apiUrl);
         const apiQuote = await response.json()
-        console.clear()
         displayQuote(apiQuote);
     } catch (err) {
         getQuote();
@@ -48,7 +47,9 @@ const getQuote = async () => {
 }
 
 const tweetQuote = () => {
-    const twitterUrl = `http://twitter.com/intent/tweet?text=${quoteText.textContent} - ${quoteAuthor.textContent}`;
+    const quote = quoteText.textContent;
+    const author = quoteText.textContent;
+    const twitterUrl = `http://twitter.com/intent/tweet?text=${quote} - ${author}`;
     window.open(twitterUrl, '_blank');
 }
 

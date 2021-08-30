@@ -4,7 +4,7 @@ A pleasant quote generator you can Tweet to your friends, fetched from the [fori
 
 ![Quote Generator](https://drive.google.com/uc?export=view&id=1gEToVqJcXUfGL3stDxeFZDRJjWPPuVHI)
 
-[Link to the Project](https://sharonjseg.github.io/web_project_4/)
+[Link to the Quotes Generator](https://sharonjseg.github.io/quote_generator/){:target="\_blank"}
 
 ### Technologies used
 
