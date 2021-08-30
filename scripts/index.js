@@ -48,7 +48,7 @@ const getQuoteFromApi = async () => {
 
 const tweetQuote = () => {
     const quote = quoteText.textContent;
-    const author = quoteText.textContent;
+    const author = quoteAuthor.textContent;
     const twitterUrl = `http://twitter.com/intent/tweet?text=${quote} - ${author}`;
     window.open(twitterUrl, '_blank');
 }
