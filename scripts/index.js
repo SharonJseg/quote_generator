@@ -5,18 +5,18 @@ const twitterButton = quoteContainer.querySelector('.quote__button_type_tweet');
 const newQuoteButton = quoteContainer.querySelector('.quote__button_type_new-quote');
 const loader = document.querySelector('.loader');
 
-const loading = () => {
+const showLoadingSpinner = () => {
     loader.hidden = false;
     quoteContainer.hidden = true;
 }
 
-const loadingComplete = () => {
+const removeLoadingSpinner = () => {
     quoteContainer.hidden = false;
     loader.hidden = true;
 }
 
 const displayQuote = (quote) => {
-    loading();
+    showLoadingSpinner();
     if(quote.quoteText.length > 120) {
        quoteText.classList.add('quote__text_long')
     } else {
@@ -29,11 +29,11 @@ const displayQuote = (quote) => {
         quoteAuthor.textContent = quote.quoteAuthor;
     }
     quoteText.textContent = quote.quoteText;
-    loadingComplete();
+    removeLoadingSpinner();
 }
 
-const getQuote = async () => {
-    loading()
+const getQuoteFromApi = async () => {
+    showLoadingSpinner()
     const proxyUrl = 'https://peaceful-eyrie-13335.herokuapp.com/'
     const apiUrl = 'http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json';
     try {
@@ -41,8 +41,8 @@ const getQuote = async () => {
         const apiQuote = await response.json()
         displayQuote(apiQuote);
     } catch (err) {
-        getQuote();
         console.warn(`Something went wrong - ${err}`);
+        getQuoteFromApi();
     }
 }
 
@@ -54,11 +54,11 @@ const tweetQuote = () => {
 }
 
 twitterButton.addEventListener('click', tweetQuote)
-newQuoteButton.addEventListener('click', getQuote);
+newQuoteButton.addEventListener('click', getQuoteFromApi);
 document.addEventListener('keydown', evt => {
     if (evt.key === 'Enter'){
-        getQuote();
+        getQuoteFromApi();
     }
 })
 
-getQuote();
+getQuoteFromApi();
